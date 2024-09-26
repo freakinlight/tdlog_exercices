@@ -1,3 +1,6 @@
+from solution import solution
+import unittest
+
 """
 Complete the solution so that it returns true if the first argument(string)
 passed in ends with the 2nd argument (also a string).
@@ -11,37 +14,35 @@ Examples:
 """
 Create unit test using those cases:
 fixed_tests_True = (
-    ( "samurai", "ai"    ),
-    ( "ninja",   "ja"    ),
-    ( "sensei",  "i"     ),
-    ( "abc",     "abc"   ),
-    ( "abcabc",  "bc"    ),
-    ( "fails",   "ails"  ),
+    ("samurai", "ai"),
+    ("ninja", "ja"),
+    ("sensei", "i"),
+    ("abc", "abc"),
+    ("abcabc", "bc"),
+    ("fails", "ails"),
 )
 
 fixed_tests_False = (
-    ( "sumo",    "omo"   ),
-    ( "samurai", "ra"    ),
-    ( "abc",     "abcd"  ),
-    ( "ails",    "fails" ),
-    ( "this",    "fails" ),
-    ( "spam",    "eggs"  )
+    ("sumo", "omo"),
+    ("samurai", "ra"),
+    ("abc", "abcd"),
+    ("ails", "fails"),
+    ("this", "fails"),
+    ("spam", "eggs")
 )
 """
-from solution import solution
 
-import unittest
 
 class TestSolution(unittest.TestCase):
 
     def test_true_cases(self):
         fixed_tests_True = (
-            ( "samurai", "ai"    ),
-            ( "ninja",   "ja"    ),
-            ( "sensei",  "i"     ),
-            ( "abc",     "abc"   ),
-            ( "abcabc",  "bc"    ),
-            ( "fails",   "ails"  ),
+            ("samurai", "ai"),
+            ("ninja", "ja"),
+            ("sensei", "i"),
+            ("abc", "abc"),
+            ("abcabc", "bc"),
+            ("fails", "ails"),
         )
         for string, ending in fixed_tests_True:
             with self.subTest(string=string, ending=ending):
@@ -49,17 +50,17 @@ class TestSolution(unittest.TestCase):
 
     def test_false_cases(self):
         fixed_tests_False = (
-            ( "sumo",    "omo"   ),
-            ( "samurai", "ra"    ),
-            ( "abc",     "abcd"  ),
-            ( "ails",    "fails" ),
-            ( "this",    "fails" ),
-            ( "spam",    "eggs"  )
+            ("sumo", "omo"),
+            ("samurai", "ra"),
+            ("abc", "abcd"),
+            ("ails", "fails"),
+            ("this", "fails"),
+            ("spam", "eggs"),
         )
         for string, ending in fixed_tests_False:
             with self.subTest(string=string, ending=ending):
                 self.assertFalse(solution(string, ending))
 
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
-
